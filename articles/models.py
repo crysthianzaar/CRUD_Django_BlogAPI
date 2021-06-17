@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 from django.utils.text import slugify
 
 STATUS_CHOICES = (
@@ -13,7 +14,6 @@ class Author(models.Model):
     def __str__(self):
         return self.name
     
-
 class Articles(models.Model):
     category = models.CharField(max_length=150)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -22,12 +22,12 @@ class Articles(models.Model):
     firstParagraph = models.TextField()
     body = models.TextField()
     status = models.CharField(max_length = 10, choices = STATUS_CHOICES, default ='draft')
-    slug = models.SlugField(unique=True, auto_created= True)
+    slug = models.SlugField(auto_created= True)
     published_at = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now = True)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        self.category = slugify(self.category)
         super(Articles, self).save(*args, **kwargs)
 
     def __str__(self):

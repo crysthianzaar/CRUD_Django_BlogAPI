@@ -1,4 +1,42 @@
+# Django Challenge
+## _prerequisites:_
+
+- Python 3
+- Git
+- Docker
+- Docker Compose
+
+### STAR PROJECT IN DEVELOPMENT: 
+- Clone this project
+- Run Docker Compose: `docker-compose up`
+- Make makemigrations: `docker-compose exec web python manage.py makemigrations`
+- Make Migrate:  `docker-compose exec web python manage.py migrate`
+- Create a superuser: `docker-compose exec web python manage.py createsuperuser`
+
+### DEPLOY PROJECT IN PRODUCTION:
+- Set `DEBUG = False` in `APIcore\settings.py`
+- Add the server domain to the `ALLOWED_HOSTS` in `APIcore\settings.py`
+- Docker Compose: `docker-compose -f docker-compose.yml -f production.yml up -d` [More Information](https://docs.docker.com/compose/production/)
+- Createsuperuser in production
+### _Features Delivered:_
+
+- Login API: `/api/login/`
+- Sign-up API: `/api/sign-up/`
+- CRUD `/api/admin/authors/`
+- CRUD `/api/admin/articles/`
+- `/api/articles/?category=:slug`
+- `/api/articles/:id/`
+## API documentation
+
+| EndPoint           | Authentication | Parameters   | methods | Finished | 
+|----------------|---------------|---------------|----------------|-----------|
+| `/api/login/`  | All  | username , password | POST | - 
+| `/api/sign-up/`| All  | username, email, password1, password1 | POST | -
+| `/api/logout/`   | IsAuthenticated  |  | POST | -
+| Object Cache   | > 5 hours  |  | in progress |  -
+-----
 # Jungle Devs - Django Challenge #001
+
 
 ## Description
 
@@ -77,3 +115,4 @@
       "body": "<div><p>Second paragraph</p><p>Third paragraph</p></div>"
     }
     ```
+
