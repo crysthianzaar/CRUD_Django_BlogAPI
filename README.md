@@ -27,13 +27,26 @@
 - `/api/articles/?category=:slug`
 - `/api/articles/:id/`
 ## API documentation
+- Authentication Method in Postman: `Basic Auth: username and password` [Example](https://i.ibb.co/8bgycqH/imagem-2021-06-17-100118.png) 
 
-| EndPoint           | Authentication | Parameters   | methods | Finished | 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/eca4f5e62ae19caea527)
+
+| EndPoint           | Authentication | Parameters   | Methods | Comments | 
 |----------------|---------------|---------------|----------------|-----------|
 | `/api/login/`  | All  | username , password | POST | - 
 | `/api/sign-up/`| All  | username, email, password1, password1 | POST | -
 | `/api/logout/`   | IsAuthenticated  |  | POST | -
-| Object Cache   | > 5 hours  |  | in progress |  -
+| `/api/user/`   | IsAdmin  |  | GET | -
+| `/api/admin/authors/`   | IsAdmin  | name, picture | GET, POST, PUT , DELETE |
+| `/api/admin/articles/`   | IsAdmin  | category, author,title, summary, firstParagraph, body | GET, POST, PUT , DELETE |
+| `/api/articles/?category=:slug`   | IsAdmin  | category | GET | partially reached the demand, authentication is for admins only
+| `/api/articles/:id/`   | IsAdmin  | id | GET | Partially reached the demand, authentication is for admins only
+
+
+### Final remarks:
+- The authentication and CRUD Admin part has ended.
+- The query part for authenticated and unauthenticated users was partially terminated as a change had to be made to the original requirements
+- There are some differences from the initial requirements, such as endpoint change, author is not an object and there are no differences between an authenticated and unauthenticated user in the api `/api/all/articles/:id/` 
 -----
 # Jungle Devs - Django Challenge #001
 
