@@ -48,7 +48,6 @@
 - The query part for authenticated and unauthenticated users was partially terminated as a change had to be made to the original requirements
 - There are some differences from the initial requirements, such as endpoint change, author is not an object and there are no differences between an authenticated and unauthenticated user in the api `/api/all/articles/:id/` 
 -----
-# Jungle Devs - Django Challenge #001
 
 
 ## Description
